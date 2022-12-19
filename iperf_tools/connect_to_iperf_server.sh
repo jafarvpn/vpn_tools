@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check if iperf is already installed otherwise install it
+if [ -f /usr/bin/iperf ]; then
+    echo "iperf is already installed"
+    exit 1
+else
+    apt install -y iperf3
+fi
+
 # Read server address from user
 read -p "Enter the iperf server address: " SERVER_ADDRESS
 

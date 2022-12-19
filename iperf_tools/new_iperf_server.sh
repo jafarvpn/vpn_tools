@@ -12,6 +12,8 @@ fi
 if [ -f /usr/bin/iperf ]; then
     echo "iperf is already installed"
     exit 1
+else
+    apt install -y iperf3
 fi
 
 # get machine's ip address using dig
@@ -22,8 +24,6 @@ cd ~
 mkdir iperf
 cd iperf
 
-# Download iperf
-apt install -y iperf3
 
 # Generate rsa keypair
 openssl genrsa -des3 -out private.pem 2048
